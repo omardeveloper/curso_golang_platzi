@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"math"
 	"strings"
+
+	mypackage "curso_golang_platzi/src/mypackage"
 )
 
 type car struct {
@@ -221,6 +223,32 @@ func main() {
 	var otherCar car
 	otherCar.brand = "Renault"
 	fmt.Println(otherCar)
+
+	var myCarPublic mypackage.CarPublic
+	myCarPublic.Brand = "Ferrari"
+	myCarPublic.Year = 2021
+	fmt.Println(myCarPublic)
+
+	mypackage.PrintMessage("mi mensaje personalizado")
+
+	//PUNTEWROS
+	numberA := 50
+	//& sera la direccion de memoria
+	numberB := &numberA
+	fmt.Println(numberA)
+	fmt.Println(numberB)
+	fmt.Println(*numberB)
+	//modifico b que tiene 100 pero imprimo a
+	*numberB = 100
+	fmt.Println(numberA)
+
+	myPC := mypackage.Pc{Ram: 16, Disk: 200, Brand: "msi"}
+	fmt.Println(myPC)
+	myPC.Ping()
+	myPC.DuplicateRam()
+	myPC.DuplicateDisk()
+	fmt.Println(myPC)
+
 }
 
 func isPalindrome(text string) bool {
